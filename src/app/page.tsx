@@ -1,69 +1,118 @@
+import Button from "@/components/Button";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <>
+      {/* Fixed checker background */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="racing-background absolute -inset-[20%] rotate-[-8deg] scale-125" />
+      </div>
+
+      <main className="min-h-screen text-zinc-950 dark:text-white">
+
+        {/* HERO */}
+        <section className="relative mx-auto w-full max-w-[1600px] px-4 pt-24 md:px-10">
+
+          {/* Image */}
+          <div className="relative h-[55vh] min-h-[450px] w-full overflow-hidden rounded-2xl">
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src="/images/983418_1.jpg"
+              fill
+              priority
+              alt="Uppsala Formula Student"
+              className="object-cover"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+            {/* Slight dark overlay */}
+            <div className="absolute inset-0 bg-black/10" />
+          </div>
+
+          {/* Floating box */}
+          <div
+            className="
+              relative
+              -mt-20
+              ml-4
+              w-[min(90%,700px)]
+              rounded-2xl
+              border border-zinc-300/60
+              bg-zinc-100/90
+              p-8
+              pt-16
+              shadow-2xl
+              backdrop-blur-xl
+
+              dark:border-zinc-700/60
+              dark:bg-zinc-950/85
+
+              md:-mt-28
+              md:ml-14
+              md:p-10
+              md:pt-20
+            "
           >
-            Documentation
-          </a>
-        </div>
+            {/* Accent */}
+            <div
+              className="
+                absolute
+                bottom-8
+                left-5
+                top-8
+                w-2
+                -translate-x-1/2
+                rounded-full
+                bg-gradient-to-b
+                from-blue-500
+                to-indigo-900
+              "
+            />
+
+            {/* POP-OUT TEXT */}
+            <h1
+              className="
+                absolute
+                -top-12
+                left-8
+                font-black
+                text-8xl
+                leading-none
+                tracking-[-0.08em]
+                italic
+
+                md:-top-16
+                md:text-[10rem]
+              "
+            >
+              UFS
+            </h1>
+
+            <div className="relative z-10">
+              <p className="max-w-md text-xl font-semibold md:text-2xl">
+                Building the future of student motorsport.
+              </p>
+
+                {/*<p className="mt-3 max-w-lg text-zinc-600 dark:text-zinc-400">
+                Uppsala Formula Student designs, builds and races a Formula
+                Student car at Uppsala University.
+              </p>*/}
+
+              <Button href="/about" className="mt-6">
+                Learn More →
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto mt-20 w-full max-w-[1600px] px-4 md:px-10 bg-blue-500/90 rounded-2xl p-8 md:p-16 items-center text-center">
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+            Our Mission
+          </h2>
+          <p className="max-w-3xl text-lg font-semibold md:text-xl">
+            Uppsala Formula Student is a student-led team that designs, builds, and races a Formula Student car. Our mission is to provide students with hands-on experience in engineering, teamwork, and project management, while promoting innovation and sustainability in motorsport.
+          </p>
+        </section>
       </main>
-    </div>
+    </>
   );
 }

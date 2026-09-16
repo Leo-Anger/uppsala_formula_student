@@ -23,7 +23,39 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+      {/*nav for desktop*/}
+        <nav className="hidden md:flex text-white p-4 sticky top-0 z-50 backdrop-blur-md bg-zinc-950/40">
+              <a href="/" className="hover:underline">
+                Home
+                </a>
+
+          <ul className="flex ml-auto gap-6">
+            <li>
+              <a href="/about" className="hover:underline">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="/garage" className="hover:underline">
+                Garage
+              </a>
+            </li>
+            <li>
+              <a href="/join" className="hover:underline">
+                Join Us
+              </a>
+            </li>
+            <li>
+              <a href="/partnership" className="hover:underline">
+                Partnership
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        {children}
+      </body>
     </html>
   );
 }

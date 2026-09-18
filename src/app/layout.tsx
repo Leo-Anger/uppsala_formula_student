@@ -55,7 +55,26 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </nav>
 
         {children}
-        <footer className="border border-zinc-200 bg-white/75 p-7 backdrop-blur-xl transition duration-300 dark:border-zinc-800 dark:bg-zinc-950/75">
+        <footer className="border border-zinc-200 bg-white/75 p-7 backdrop-blur-xl transition duration-300 dark:border-zinc-800 dark:bg-zinc-950/75 flex group flex-col items-center justify-center gap-4 text-center">
+        <h2 className="text-2xl font-black tracking-tight text-zinc-950 dark:text-white">
+            Uppsala 
+            Formula
+            Student
+          </h2>
+            <div className="flex gap-4">
+                <a href="https://www.instagram.com/uppsalafsa/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    Instagram
+                </a>
+                <a href="https://www.linkedin.com/company/uppsala-formula-student/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    LinkedIn
+                </a>
+                <a href="mailto:contact@uppsalaformulastudent.se" className="hover:underline">
+                    Email
+                </a>
+            </div>
+          <p className="text-sm text-zinc-950 dark:text-white">
+            &copy; {new Date().getFullYear()} Uppsala Formula Student. All rights reserved.
+          </p>
         </footer>
       </body>
     </html>

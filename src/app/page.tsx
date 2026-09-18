@@ -2,30 +2,30 @@ import Button from "@/components/Button";
 import Image from "next/image";
 import Link from "next/link";
 
-const disciplines = [
+const teams = [
+  {
+    number: "00",
+    title: "Management",
+    description:
+      "Managing the team, finances, partnerships and communications.",
+  },
   {
     number: "01",
-    title: "Mechanical",
+    title: "Chassis",
     description:
-      "Developing the chassis, suspension, drivetrain and aerodynamic systems of the car.",
+      "Developing the chassis, suspension and aerodynamic systems of the car.",
   },
   {
     number: "02",
-    title: "Electrical",
+    title: "Drivetrain",
     description:
-      "Designing the electrical architecture, power systems, sensors and embedded electronics.",
+      "Designing the powertrain, including the engine, transmission and cooling systems.",
   },
   {
     number: "03",
-    title: "Software",
+    title: "Electrical",
     description:
-      "Building telemetry, data acquisition and software tools that help us understand the car.",
-  },
-  {
-    number: "04",
-    title: "Business",
-    description:
-      "Managing partnerships, marketing, finance, events and the organisation behind the team.",
+      "Designing the electrical architecture, power systems, sensors and embedded electronics.",
   },
 ];
 
@@ -124,7 +124,7 @@ export default function Home() {
 
                 <div>
                   <dt className="text-2xl font-black md:text-4xl">04</dt>
-                  <dd className="mt-1 text-sm text-blue-100">Disciplines</dd>
+                  <dd className="mt-1 text-sm text-blue-100">teams</dd>
                 </div>
 
                 <div>
@@ -190,7 +190,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* DISCIPLINES */}
+        {/* Teams*/}
         <section className="mx-auto mt-28 w-full max-w-[1400px] px-4 md:mt-36 md:px-10">
           <div className="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
@@ -199,7 +199,7 @@ export default function Home() {
               </p>
 
               <h2 className="text-4xl font-black tracking-tight md:text-6xl">
-                One team. Many disciplines.
+                Meet the teams. 
               </h2>
             </div>
 
@@ -210,26 +210,26 @@ export default function Home() {
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
-            {disciplines.map((discipline) => (
+            {teams.map((team) => (
               <article
-                key={discipline.title}
+                key={team.title}
                 className="group rounded-3xl border border-zinc-200 bg-white/75 p-7 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-950/75"
               >
                 <div className="mb-14 flex items-center gap-4">
                   <span className="font-mono text-sm font-bold text-blue-600">
-                    {discipline.number}
+                    {team.number}
                   </span>
                   <div className="h-px flex-1 bg-zinc-200 transition group-hover:bg-blue-500 dark:bg-zinc-800" />
                 </div>
 
-                <h3 className="text-3xl font-black">{discipline.title}</h3>
+                <h3 className="text-3xl font-black">{team.title}</h3>
 
                 <p className="mt-4 max-w-md leading-relaxed text-zinc-600 dark:text-zinc-400">
-                  {discipline.description}
+                  {team.description}
                 </p>
 
                 <Link
-                  href="/team"
+                  href={`/about#${team.title.toLowerCase()}`}
                   className="mt-8 inline-block font-bold text-blue-600 hover:text-blue-700"
                 >
                   Meet the division →

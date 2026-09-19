@@ -1,8 +1,4 @@
-export type Team =
-    "management" |
-    "chassis" |
-    "drivetrain" |
-    "electrical";
+export type Team = "management" | "chassis" | "drivetrain" | "electrical";
 
 export type Member = {
     name: string;
@@ -11,36 +7,41 @@ export type Member = {
     teams: Team[];
 };
 
-
 export const members: Member[] = [
     {
-        name: "中野一花",
-        title: "Team Leader",
-        image: "/images/test/1.png",
+        name: "David Jungner",
+        title: "Team Manager",
+        image: "",
+        teams: ["management"],
+    },
+    {
+        name: "Sebastian Sialis",
+        title: "Drivetrain & Electrical Leader ",
+        image: "",
+        teams: ["management", "drivetrain", "electrical"],
+    },
+    {
+        name: "Gustav Edlund Fransson",
+        title: "Chassis Team member",
+        image: "",
         teams: ["management", "chassis"],
     },
     {
-        name: "中野二乃",
-        title: "Drivetrain Leader",
-        image: "/images/test/2.png",
-        teams: ["management", "drivetrain"],
-    },
-    {
-        name: "中野三玖",
-        title: "Electrical Team member",
-        image: "/images/test/3.png",
+        name: "Viktor Nordmark",
+        title: "Electrical Team Member",
+        image: "",
         teams: ["management", "electrical"],
     },
     {
-        name: "中野四葉",
-        title: "Chassis Team Member",
-        image: "/images/test/4.png",
-        teams: ["management", "chassis"],
+        name: "Leo Anger",
+        title: "IT manager",
+        image: "",
+        teams: ["management"],
     },
     {
-        name: "中野五月",
-        title: "Electrical Team Leader",
-        image: "/images/test/5.png",
+        name: "Miles Nordhall",
+        title: "Electrical Team Member",
+        image: "",
         teams: ["management", "electrical"],
     },
 ];

@@ -42,7 +42,7 @@ export default function Home() {
         <section className="relative mx-auto w-full max-w-[1600px] px-4 pt-24 md:px-10">
           <div className="relative h-[55vh] min-h-[450px] w-full overflow-hidden rounded-2xl">
             <Image
-              src="/images/DSCF3961-1024x683.png"
+              src="/images/main/hero.png"
               fill
               priority
               alt="Uppsala Formula Student team"

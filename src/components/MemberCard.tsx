@@ -31,9 +31,9 @@ export default function MemberCard({ member }: MemberCardProps) {
       )}
 
       <div className="mt-6">
-        <h2 className="text-2xl font-black tracking-tight text-zinc-950 dark:text-white">
+        <h4 className="text-2xl font-black tracking-tight text-zinc-950 dark:text-white">
           {member.name}
-        </h2>
+        </h4>
 
         <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-red-600 dark:text-red-400">
           {member.title}

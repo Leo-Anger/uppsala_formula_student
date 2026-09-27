@@ -22,12 +22,22 @@ export default function CarCarousel({
     setCurrent((current + 1) % images.length);
   }
 
+  if (images.length === 0) {
+    return (
+      <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-2xl bg-zinc-950 text-white">
+        <span aria-hidden="true" className="absolute text-[12rem] font-black italic leading-none text-white/[0.06]">01</span>
+        <p className="relative px-6 text-center text-xl font-bold">Images of {name} coming soon</p>
+      </div>
+    );
+  }
+
   return (
     <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-zinc-200 dark:bg-zinc-900">
       <Image
         src={images[current]}
         alt={`${name} image ${current + 1}`}
         fill
+        sizes="(max-width: 1280px) 100vw, 50vw"
         className="object-cover transition"
       />
 

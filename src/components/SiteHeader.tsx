@@ -7,7 +7,6 @@ import { useState } from "react";
 
 const navigation = [
   { href: "/about", label: "About" },
-  { href: "/garage", label: "Garage" },
   { href: "/join", label: "Join Us" },
   { href: "/partnership", label: "Partnership" },
 ];
@@ -29,10 +28,10 @@ export default function SiteHeader() {
         <Link
           href="/"
           onClick={() => setMenuOpen(false)}
-          className="group flex items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
+          className="group flex items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-600"
           aria-label="Uppsala Formula Student home"
         >
-          <span className="rounded-md bg-[#0B1F33] px-2.5 py-1.5 text-lg font-black italic tracking-[-0.05em] text-white transition group-hover:bg-blue-700">
+          <span className="rounded-md bg-brand-800 px-2.5 py-1.5 text-lg font-black italic tracking-[-0.05em] text-white transition group-hover:bg-brand-700">
             UFS
           </span>
           <span className="hidden text-sm font-bold leading-tight sm:block">
@@ -49,9 +48,9 @@ export default function SiteHeader() {
                 <Link
                   href={item.href}
                   aria-current={active ? "page" : undefined}
-                  className={`rounded-lg px-4 py-2 text-sm font-bold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${
+                  className={`rounded-lg px-4 py-2 text-sm font-bold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 ${
                     active
-                      ? "bg-blue-600 text-white"
+                      ? "bg-brand-700 text-white"
                       : "hover:bg-zinc-100 dark:hover:bg-zinc-900"
                   }`}
                 >
@@ -68,7 +67,7 @@ export default function SiteHeader() {
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-          className="ml-auto flex size-11 flex-col items-center justify-center gap-1.5 rounded-lg border border-zinc-200 transition hover:bg-zinc-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:border-zinc-800 dark:hover:bg-zinc-900 md:hidden"
+          className="ml-auto flex size-11 flex-col items-center justify-center gap-1.5 rounded-lg border border-zinc-200 transition hover:bg-zinc-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 dark:border-zinc-800 dark:hover:bg-zinc-900 md:hidden"
         >
           <span
             className={`h-0.5 w-5 rounded-full bg-current transition ${
@@ -104,7 +103,7 @@ export default function SiteHeader() {
                   aria-current={active ? "page" : undefined}
                   className={`block rounded-xl px-4 py-3 font-bold transition ${
                     active
-                      ? "bg-blue-600 text-white"
+                      ? "bg-brand-700 text-white"
                       : "bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800"
                   }`}
                 >

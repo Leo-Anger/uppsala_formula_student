@@ -55,14 +55,14 @@ export default function CarModal({ car, open, onClose }: CarModalProps) {
           ref={closeButtonRef}
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 z-20 flex size-11 items-center justify-center rounded-full bg-white/90 text-2xl text-zinc-950 shadow-lg backdrop-blur transition hover:scale-105 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:bg-zinc-800/90 dark:text-white dark:hover:bg-zinc-700 sm:right-6 sm:top-6"
+          className="absolute right-4 top-4 z-20 flex size-11 items-center justify-center rounded-full bg-white/90 text-2xl text-zinc-950 shadow-lg backdrop-blur transition hover:scale-105 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 dark:bg-zinc-800/90 dark:text-white dark:hover:bg-zinc-700 sm:right-6 sm:top-6"
           aria-label={`Close ${car.name} details`}
         >
           ×
         </button>
 
         <header className="mb-8 pr-14">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-600 dark:text-blue-400">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-brand-600 dark:text-brand-400">
             Project {car.number} · {car.year}
           </p>
           <h2
@@ -90,7 +90,7 @@ export default function CarModal({ car, open, onClose }: CarModalProps) {
                   {car.number}
                 </span>
                 <div className="relative max-w-md">
-                  <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-600 dark:text-blue-400">
+                  <p className="text-sm font-black uppercase tracking-[0.22em] text-brand-600 dark:text-brand-400">
                     Interactive 3D view
                   </p>
                   <h3 className="mt-4 text-3xl font-black text-zinc-950 dark:text-white">

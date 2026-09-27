@@ -43,8 +43,7 @@
   /*
    * Secondary accent
    *
-   * Rose gives the red palette a little variation,
-   * similar to how indigo complemented the old blue.
+   * Rose gives the red palette a little variation.
    */
   --accent: var(--color-rose-700);
   --accent-hover: var(--color-rose-600);

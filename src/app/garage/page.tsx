@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import CarCard from "@/components/CarCard";
 import { cars } from "@/data/cars";
 
@@ -9,6 +10,10 @@ export const metadata: Metadata = {
 };
 
 export default function GaragePage() {
+  // Keep the work in progress in the repository until real car media is ready.
+  const garagePublished = false;
+  if (!garagePublished) notFound();
+
   return (
     <>
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
@@ -17,7 +22,7 @@ export default function GaragePage() {
 
       <main className="overflow-x-clip text-zinc-950 dark:text-white">
         <section className="mx-auto w-full max-w-[1600px] px-4 pb-16 pt-10 md:px-10 md:pb-24 md:pt-16">
-          <div className="relative overflow-hidden rounded-3xl bg-[#0B1F33] px-7 py-20 text-white shadow-2xl sm:px-10 md:px-16 md:py-28 lg:px-20">
+          <div className="relative overflow-hidden rounded-3xl bg-zinc-950 px-7 py-20 text-white shadow-2xl sm:px-10 md:px-16 md:py-28 lg:px-20">
             <div
               aria-hidden="true"
               className="absolute -right-10 -top-20 select-none text-[16rem] font-black italic leading-none tracking-[-0.08em] text-white/[0.04] md:text-[27rem]"
@@ -31,14 +36,14 @@ export default function GaragePage() {
                 The garage
               </p>
               <h1 className="mt-5 text-5xl font-black italic leading-[0.9] tracking-[-0.05em] sm:text-6xl md:text-8xl">
-                Every car starts
+                UFS01: from concept
                 <br />
-                with a first line.
+                to competition.
               </h1>
               <p className="mt-8 max-w-3xl text-lg leading-8 text-zinc-200 md:text-xl">
-                Follow UFS01 from concept to competition. Each car profile will
-                collect its story, technical details, images, and interactive 3D
-                model as the project develops.
+                Our first car is in development, with competition as our goal
+                for 2027 or 2028. The team is building the design, knowledge
+                and organisation needed to get there.
               </p>
             </div>
           </div>
@@ -51,7 +56,7 @@ export default function GaragePage() {
                 Our cars
               </p>
               <h2 className="mt-4 text-4xl font-black tracking-tight md:text-6xl">
-                The UFS lineage begins here.
+                Our first car.
               </h2>
             </div>
             <p className="max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-400 lg:justify-self-end">
@@ -68,26 +73,6 @@ export default function GaragePage() {
           </div>
         </section>
 
-        <section className="mx-auto w-full max-w-[1400px] px-4 pb-10 pt-16 md:px-10 md:pb-16 md:pt-24">
-          <div className="grid overflow-hidden rounded-3xl border border-zinc-200 bg-white/85 shadow-xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/85 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="p-8 md:p-14">
-              <p className="text-sm font-black uppercase tracking-[0.24em] text-red-600 dark:text-red-400">
-                Project standard
-              </p>
-              <h2 className="mt-5 text-4xl font-black tracking-tight md:text-5xl">
-                Safety before the stopwatch.
-              </h2>
-            </div>
-            <div className="border-t border-zinc-200 bg-zinc-100/80 p-8 dark:border-zinc-800 dark:bg-zinc-900/80 md:p-14 lg:border-l lg:border-t-0">
-              <p className="text-lg leading-8 text-zinc-700 dark:text-zinc-300">
-                Our target is to take the first car to competition in 2027 or
-                2028 and pass technical inspection on the first attempt. Every
-                design decision must support that goal without compromising the
-                safety of the team, driver, or anyone on track.
-              </p>
-            </div>
-          </div>
-        </section>
       </main>
     </>
   );

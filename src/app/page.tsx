@@ -2,30 +2,26 @@ import Button from "@/components/Button";
 import Image from "next/image";
 import Link from "next/link";
 
-const teams = [
+const departments = [
   {
-    number: "00",
     title: "Management",
     description:
-      "Managing the team, finances, partnerships and communications.",
+      "Coordinating the team, finances, partnerships, communications and events.",
   },
   {
-    number: "01",
     title: "Chassis",
     description:
-      "Developing the chassis, suspension and aerodynamic systems of the car.",
+      "Developing the frame, bodywork, suspension, steering, brakes and driver environment.",
   },
   {
-    number: "02",
     title: "Drivetrain",
     description:
-      "Designing the powertrain, including the engine, transmission and cooling systems.",
+      "Integrating motors, control, transmission, cooling and performance simulation.",
   },
   {
-    number: "03",
     title: "Electrical",
     description:
-      "Designing the electrical architecture, power systems, sensors and embedded electronics.",
+      "Building the accumulator, safety systems, wiring, sensing and data systems.",
   },
 ];
 
@@ -45,6 +41,7 @@ export default function Home() {
               src="/images/main/hero.png"
               fill
               priority
+              sizes="(max-width: 1600px) 100vw, 1600px"
               alt="Uppsala Formula Student team"
               className="object-cover"
             />
@@ -95,10 +92,10 @@ export default function Home() {
         {/* MISSION */}
         <section
           id="mission"
-          className="mx-auto mt-28 w-full max-w-[1400px] px-4 md:mt-36 md:px-10"
+          className="mx-auto mt-28 w-full max-w-[1600px] px-4 md:mt-36 md:px-10"
         >
-          <div className="grid overflow-hidden rounded-3xl border border-zinc-200 bg-white/80 shadow-xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/80 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="p-8 md:p-14">
+          <div className="grid min-h-[380px] overflow-hidden rounded-3xl border border-zinc-200 bg-white/80 shadow-xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/80 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="p-8 md:p-16">
               <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-accent-600">
                 Our mission
               </p>
@@ -108,7 +105,7 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="bg-brand-800 p-8 text-white md:p-14">
+            <div className="flex flex-col justify-center bg-brand-800 p-8 text-white md:p-16">
               <p className="max-w-2xl text-lg font-medium leading-relaxed md:text-xl">
                 Uppsala Formula Student is a student-led team that designs,
                 builds and competes with a Formula Student car. We give students
@@ -116,28 +113,16 @@ export default function Home() {
                 management while advancing sustainable motorsport.
               </p>
 
-              <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-white/25 pt-8">
-                <div>
-                  <dt className="text-2xl font-black md:text-4xl">01</dt>
-                  <dd className="mt-1 text-sm text-brand-100">Shabrand goal</dd>
-                </div>
-
-                <div>
-                  <dt className="text-2xl font-black md:text-4xl">04</dt>
-                  <dd className="mt-1 text-sm text-brand-100">teams</dd>
-                </div>
-
-                <div>
-                  <dt className="text-2xl font-black md:text-4xl">100%</dt>
-                  <dd className="mt-1 text-sm text-brand-100">Student-led</dd>
-                </div>
-              </dl>
+              <p className="mt-8 border-t border-white/25 pt-8 text-base leading-relaxed text-brand-100 md:text-lg">
+                From the first design decisions to the finished car, students
+                work across departments to turn ideas into practical experience.
+              </p>
             </div>
           </div>
         </section>
 
         {/* CURRENT PROJECT */}
-        <section className="mx-auto mt-28 w-full max-w-[1400px] px-4 md:mt-36 md:px-10">
+        <section id="project" className="mx-auto mt-28 w-full max-w-[1600px] scroll-mt-28 px-4 md:mt-36 md:px-10">
           <div className="relative overflow-hidden rounded-3xl bg-zinc-950 px-8 py-16 text-white shadow-2xl md:px-14 md:py-24">
             <div
               aria-hidden="true"
@@ -163,12 +148,14 @@ export default function Home() {
                   competition.
                 </p>
 
-                <Link
-                  href="/garage"
+                <a
+                  href="https://www.instagram.com/uppsalafsa/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-8 inline-flex items-center rounded-lg bg-white px-6 py-3 font-bold text-zinc-950 transition hover:bg-brand-100"
                 >
-                  Follow the project →
-                </Link>
+                  Follow updates on Instagram ↗
+                </a>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
@@ -190,8 +177,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Teams*/}
-        <section className="mx-auto mt-28 w-full max-w-[1400px] px-4 md:mt-36 md:px-10">
+        {/* DEPARTMENTS */}
+        <section className="mx-auto mt-28 w-full max-w-[1600px] px-4 md:mt-36 md:px-10">
           <div className="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-brand-600">
@@ -199,7 +186,7 @@ export default function Home() {
               </p>
 
               <h2 className="text-4xl font-black tracking-tight md:text-6xl">
-                Meet the teams. 
+                Meet the departments.
               </h2>
             </div>
 
@@ -210,37 +197,28 @@ export default function Home() {
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
-            {teams.map((team) => (
-              <article
+            {departments.map((team) => (
+              <Link
                 key={team.title}
-                className="group rounded-3xl border border-zinc-200 bg-white/75 p-7 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-950/75"
+                href={`/about#${team.title.toLowerCase()}`}
+                aria-label={`Meet the ${team.title} department`}
+                className="group flex min-h-64 flex-col rounded-3xl border border-zinc-200 bg-white/75 p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-600 dark:border-zinc-800 dark:bg-zinc-950/75 md:min-h-72 md:p-10"
               >
-                <div className="mb-14 flex items-center gap-4">
-                  <span className="font-mono text-sm font-bold text-brand-600">
-                    {team.number}
-                  </span>
-                  <div className="h-px flex-1 bg-zinc-200 transition group-hover:bg-brand-500 dark:bg-zinc-800" />
-                </div>
+                <div className="mb-10 h-1 w-16 rounded-full bg-brand-600 transition group-hover:w-24" />
 
                 <h3 className="text-3xl font-black">{team.title}</h3>
 
-                <p className="mt-4 max-w-md leading-relaxed text-zinc-600 dark:text-zinc-400">
+                <p className="mt-4 max-w-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
                   {team.description}
                 </p>
-
-                <Link
-                  href={`/about#${team.title.toLowerCase()}`}
-                  className="mt-8 inline-block font-bold text-brand-600 hover:text-brand-700"
-                >
-                  Meet the division →
-                </Link>
-              </article>
+                <span aria-hidden="true" className="mt-auto self-end pt-6 text-2xl font-bold text-brand-600 transition group-hover:translate-x-1">→</span>
+              </Link>
             ))}
           </div>
         </section>
 
         {/* PARTNERSHIP */}
-        <section className="mx-auto mt-28 w-full max-w-[1400px] px-4 md:mt-36 md:px-10">
+        <section className="mx-auto mt-28 w-full max-w-[1600px] px-4 md:mt-36 md:px-10">
           <div className="grid gap-10 rounded-3xl border border-zinc-200 bg-zinc-100/80 p-8 backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-900/80 md:p-14 lg:grid-cols-2 lg:items-center">
             <div>
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-brand-600">
@@ -279,24 +257,24 @@ export default function Home() {
 
             <div className="relative">
               <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-brand-100">
-                Join UFS
+                Join us
               </p>
 
               <h2 className="mx-auto max-w-4xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
-                Your work could be part of our first car.
+                Help shape what we build next.
               </h2>
 
               <p className="mx-auto mt-7 max-w-2xl text-lg text-brand-100">
-                Whether you study engineering, software, economics, media or
-                something entirely different, there is a place for you in the
-                team.
+                Interested in engineering or motorsport? We welcome curious,
+                committed bachelor&apos;s and master&apos;s students at Uppsala
+                University who want to learn and contribute.
               </p>
 
               <Link
-                href="/join"
+                href="/join#apply"
                 className="mt-9 inline-flex rounded-lg bg-white px-7 py-3.5 font-bold text-brand-700 transition hover:bg-brand-50"
               >
-                Join the team →
+                Apply now →
               </Link>
             </div>
           </div>

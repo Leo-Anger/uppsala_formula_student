@@ -16,13 +16,13 @@ export const members: Member[] = [
     },
     {
         name: "Sebastian Sialis",
-        title: "Head of Drivetrain & Electrical",
+        title: "Drivetrain and Electrical Lead",
         image: "",
         teams: ["management", "drivetrain", "electrical"],
     },
     {
         name: "Gustav Edlund Fransson",
-        title: "Head of Chassis & Vehicle Dynamics",
+        title: "Chassis Lead",
         image: "",
         teams: ["management", "chassis"],
     },

@@ -38,7 +38,7 @@ export default function CarCarousel({
             className="absolute left-4 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-xl text-white backdrop-blur transition hover:bg-black/70"
             aria-label="Previous image"
           >
-            ←
+            &lt;
           </button>
 
           <button
@@ -46,7 +46,7 @@ export default function CarCarousel({
             className="absolute right-4 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 text-xl text-white backdrop-blur transition hover:bg-black/70"
             aria-label="Next image"
           >
-            →
+            &gt;
           </button>
 
           <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">

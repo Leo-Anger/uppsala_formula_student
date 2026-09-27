@@ -1,47 +1,42 @@
 "use client";
 
 import { useEffect } from "react";
+import type { ComponentType } from "react";
 
-type Props = {
+type CarModelViewerProps = {
   src: string;
   poster?: string;
   alt: string;
 };
 
+const ModelViewer = "model-viewer" as unknown as ComponentType<
+  Record<string, unknown>
+>;
+
 export default function CarModelViewer({
   src,
   poster,
   alt,
-}: Props) {
+}: CarModelViewerProps) {
   useEffect(() => {
-    import("@google/model-viewer");
+    void import("@google/model-viewer");
   }, []);
 
   return (
-    <model-viewer
+    <ModelViewer
       src={src}
       poster={poster}
       alt={alt}
       camera-controls
       auto-rotate
       shadow-intensity="1"
-
-      camera-orbit="45deg 70deg 35%"
-      min-camera-orbit="auto auto 15%"
-      max-camera-orbit="auto auto 150%"
-      field-of-view="25deg"
-
+      camera-orbit="35deg 68deg 75%"
+      min-camera-orbit="auto auto 35%"
+      max-camera-orbit="auto auto 160%"
+      field-of-view="28deg"
       interaction-prompt="none"
-
-      className="
-        h-[60vh]
-        min-h-[500px]
-        w-full
-        rounded-2xl
-        bg-zinc-100
-        lg:h-[70vh]
-        dark:bg-zinc-900
-      "
+      touch-action="pan-y"
+      className="h-full min-h-full w-full bg-zinc-100 dark:bg-zinc-900"
     />
   );
 }

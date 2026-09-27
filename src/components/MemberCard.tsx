@@ -13,7 +13,7 @@ export default function MemberCard({ member }: MemberCardProps) {
     .toUpperCase();
 
   return (
-    <article className="group flex flex-col items-center rounded-3xl border border-zinc-200 bg-white/75 p-7 text-center backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-950/75">
+    <article className="group flex flex-col items-center rounded-3xl border border-zinc-200 bg-white/75 p-7 text-center backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-red-500 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-950/75">
       {member.image ? (
         <Image
           src={member.image}
@@ -23,7 +23,7 @@ export default function MemberCard({ member }: MemberCardProps) {
           className="aspect-square w-full max-w-[400px] rounded-2xl object-cover transition duration-300 group-hover:scale-[1.03]"
         />
       ) : (
-        <div className="flex aspect-square w-full max-w-[400px] items-center justify-center rounded-2xl bg-[#0B1F33] transition duration-300 group-hover:scale-[1.03]">
+        <div className="flex aspect-square w-full max-w-[400px] items-center justify-center rounded-2xl bg-rose-950 transition duration-300 group-hover:scale-[1.03]">
           <span className="text-6xl font-black text-white">
             {initials}
           </span>
@@ -35,7 +35,7 @@ export default function MemberCard({ member }: MemberCardProps) {
           {member.name}
         </h2>
 
-        <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400">
+        <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-red-600 dark:text-red-400">
           {member.title}
         </p>
       </div>

@@ -66,7 +66,7 @@ export default function Home() {
               className="
                 absolute bottom-8 left-5 top-8 w-2
                 -translate-x-1/2 rounded-full
-                bg-gradient-to-b from-blue-500 to-indigo-900
+                bg-gradient-to-b from-brand-600 to-accent-900
               "
             />
 
@@ -82,7 +82,7 @@ export default function Home() {
 
             <div className="relative z-10">
               <p className="max-w-md text-xl font-semibold md:text-2xl">
-                Building the future of student motorsport.
+                Building the future of student motorsport. 
               </p>
 
               <Button href="/about" className="mt-6">
@@ -99,7 +99,7 @@ export default function Home() {
         >
           <div className="grid overflow-hidden rounded-3xl border border-zinc-200 bg-white/80 shadow-xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/80 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="p-8 md:p-14">
-              <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-blue-600">
+              <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-accent-600">
                 Our mission
               </p>
 
@@ -108,7 +108,7 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="bg-blue-600 p-8 text-white md:p-14">
+            <div className="bg-brand-800 p-8 text-white md:p-14">
               <p className="max-w-2xl text-lg font-medium leading-relaxed md:text-xl">
                 Uppsala Formula Student is a student-led team that designs,
                 builds and competes with a Formula Student car. We give students
@@ -119,17 +119,17 @@ export default function Home() {
               <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-white/25 pt-8">
                 <div>
                   <dt className="text-2xl font-black md:text-4xl">01</dt>
-                  <dd className="mt-1 text-sm text-blue-100">Shared goal</dd>
+                  <dd className="mt-1 text-sm text-brand-100">Shabrand goal</dd>
                 </div>
 
                 <div>
                   <dt className="text-2xl font-black md:text-4xl">04</dt>
-                  <dd className="mt-1 text-sm text-blue-100">teams</dd>
+                  <dd className="mt-1 text-sm text-brand-100">teams</dd>
                 </div>
 
                 <div>
                   <dt className="text-2xl font-black md:text-4xl">100%</dt>
-                  <dd className="mt-1 text-sm text-blue-100">Student-led</dd>
+                  <dd className="mt-1 text-sm text-brand-100">Student-led</dd>
                 </div>
               </dl>
             </div>
@@ -148,24 +148,24 @@ export default function Home() {
 
             <div className="relative grid gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
               <div>
-                <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-blue-400">
+                <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-brand-400">
                   Current project
                 </p>
 
                 <h2 className="max-w-3xl text-5xl font-black italic leading-[0.9] tracking-[-0.05em] md:text-8xl">
-                  Building UFS01
+                  Building Our First Car.
                 </h2>
 
                 <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-300">
                   Our first car begins long before the first component is
                   manufactured. We are building the team, technical knowledge
-                  and organisation required to take UFS01 from concept to
+                  and organisation required to take our car from concept to
                   competition.
                 </p>
 
                 <Link
                   href="/garage"
-                  className="mt-8 inline-flex items-center rounded-lg bg-white px-6 py-3 font-bold text-zinc-950 transition hover:bg-blue-100"
+                  className="mt-8 inline-flex items-center rounded-lg bg-white px-6 py-3 font-bold text-zinc-950 transition hover:bg-brand-100"
                 >
                   Follow the project →
                 </Link>
@@ -175,8 +175,8 @@ export default function Home() {
                 {[
                   "Student designed",
                   "Student built",
-                  "Multidisciplinary",
-                  "Competition driven",
+                  "Made in Uppsala",
+                  "Sustainable motorsport",
                 ].map((item) => (
                   <div
                     key={item}
@@ -194,7 +194,7 @@ export default function Home() {
         <section className="mx-auto mt-28 w-full max-w-[1400px] px-4 md:mt-36 md:px-10">
           <div className="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
-              <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-blue-600">
+              <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-brand-600">
                 What we do
               </p>
 
@@ -213,13 +213,13 @@ export default function Home() {
             {teams.map((team) => (
               <article
                 key={team.title}
-                className="group rounded-3xl border border-zinc-200 bg-white/75 p-7 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-950/75"
+                className="group rounded-3xl border border-zinc-200 bg-white/75 p-7 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-950/75"
               >
                 <div className="mb-14 flex items-center gap-4">
-                  <span className="font-mono text-sm font-bold text-blue-600">
+                  <span className="font-mono text-sm font-bold text-brand-600">
                     {team.number}
                   </span>
-                  <div className="h-px flex-1 bg-zinc-200 transition group-hover:bg-blue-500 dark:bg-zinc-800" />
+                  <div className="h-px flex-1 bg-zinc-200 transition group-hover:bg-brand-500 dark:bg-zinc-800" />
                 </div>
 
                 <h3 className="text-3xl font-black">{team.title}</h3>
@@ -230,7 +230,7 @@ export default function Home() {
 
                 <Link
                   href={`/about#${team.title.toLowerCase()}`}
-                  className="mt-8 inline-block font-bold text-blue-600 hover:text-blue-700"
+                  className="mt-8 inline-block font-bold text-brand-600 hover:text-brand-700"
                 >
                   Meet the division →
                 </Link>
@@ -243,7 +243,7 @@ export default function Home() {
         <section className="mx-auto mt-28 w-full max-w-[1400px] px-4 md:mt-36 md:px-10">
           <div className="grid gap-10 rounded-3xl border border-zinc-200 bg-zinc-100/80 p-8 backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-900/80 md:p-14 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-blue-600">
+              <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-brand-600">
                 Partnerships
               </p>
 
@@ -261,7 +261,7 @@ export default function Home() {
 
               <Link
                 href="/partnership"
-                className="mt-7 inline-block font-bold text-blue-600 hover:text-blue-700"
+                className="mt-7 inline-block font-bold text-brand-600 hover:text-brand-700"
               >
                 Become a partner →
               </Link>
@@ -271,14 +271,14 @@ export default function Home() {
 
         {/* RECRUITMENT CTA */}
         <section className="mx-auto mb-10 mt-28 w-full max-w-[1600px] px-4 md:mb-16 md:mt-36 md:px-10">
-          <div className="relative overflow-hidden rounded-3xl bg-blue-600 px-8 py-20 text-center text-white md:px-16 md:py-28">
+          <div className="relative overflow-hidden rounded-3xl bg-brand-700 px-8 py-20 text-center text-white md:px-16 md:py-28">
             <div
               aria-hidden="true"
               className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-3xl"
             />
 
             <div className="relative">
-              <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-blue-100">
+              <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-brand-100">
                 Join UFS
               </p>
 
@@ -286,7 +286,7 @@ export default function Home() {
                 Your work could be part of our first car.
               </h2>
 
-              <p className="mx-auto mt-7 max-w-2xl text-lg text-blue-100">
+              <p className="mx-auto mt-7 max-w-2xl text-lg text-brand-100">
                 Whether you study engineering, software, economics, media or
                 something entirely different, there is a place for you in the
                 team.
@@ -294,7 +294,7 @@ export default function Home() {
 
               <Link
                 href="/join"
-                className="mt-9 inline-flex rounded-lg bg-white px-7 py-3.5 font-bold text-blue-700 transition hover:bg-blue-50"
+                className="mt-9 inline-flex rounded-lg bg-white px-7 py-3.5 font-bold text-brand-700 transition hover:bg-brand-50"
               >
                 Join the team →
               </Link>

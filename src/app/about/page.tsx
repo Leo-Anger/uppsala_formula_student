@@ -18,8 +18,6 @@ export default function About() {
 
       <main>
       {/*About us section*/}
-{/* About us section */}
-{/* About us section */}
 <section className="w-full py-24 sm:py-32">
   <div className="relative h-[70vh] min-h-[500px] overflow-hidden rounded-3xl">
     <Image
@@ -39,12 +37,12 @@ export default function About() {
     {/* Hero text */}
     <div className="absolute inset-0 flex items-end p-8 md:p-14 lg:p-16">
       <div className="relative max-w-4xl pl-8 md:pl-10">
-        {/* Blue accent line */}
+        {/* red accent line */}
         <div
           className="
             absolute bottom-0 left-0 top-0 w-2
             rounded-full
-            bg-gradient-to-b from-blue-500 to-indigo-900
+            bg-gradient-to-b from-red-800 to-rose-900
           "
         />
 
@@ -86,13 +84,13 @@ export default function About() {
             return (
               <section key={team.key} id={team.key}>
                 <div className="my-12 flex items-center gap-5">
-                  <div className="h-[2px] flex-1 bg-gradient-to-r from-transparent to-blue-600" />
+                  <div className="h-[2px] flex-1 bg-gradient-to-r from-transparent to-red-600" />
 
                   <h2 className="whitespace-nowrap text-lg font-black uppercase italic tracking-[0.2em]">
                     {team.label}
                   </h2>
 
-                  <div className="h-[2px] flex-1 bg-gradient-to-l from-transparent to-blue-600" />
+                  <div className="h-[2px] flex-1 bg-gradient-to-l from-transparent to-red-600" />
                 </div>
 
                 <div className="flex flex-wrap justify-center gap-6">

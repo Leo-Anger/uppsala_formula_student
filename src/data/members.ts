@@ -10,19 +10,19 @@ export type Member = {
 export const members: Member[] = [
     {
         name: "David Jungner",
-        title: "Team Manager",
+        title: "Team Principal",
         image: "",
         teams: ["management"],
     },
     {
         name: "Sebastian Sialis",
-        title: "Drivetrain & Electrical Leader ",
+        title: "Head of Drivetrain & Electrical",
         image: "",
         teams: ["management", "drivetrain", "electrical"],
     },
     {
         name: "Gustav Edlund Fransson",
-        title: "Chassis Team member",
+        title: "Head of Chassis & Vehicle Dynamics",
         image: "",
         teams: ["management", "chassis"],
     },
@@ -34,7 +34,7 @@ export const members: Member[] = [
     },
     {
         name: "Leo Anger",
-        title: "IT manager",
+        title: "IT Manager",
         image: "",
         teams: ["management"],
     },
@@ -42,6 +42,6 @@ export const members: Member[] = [
         name: "Miles Nordhall",
         title: "Electrical Team Member",
         image: "",
-        teams: ["management", "electrical"],
+        teams: ["electrical"],
     },
 ];

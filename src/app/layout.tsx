@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -27,7 +28,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       {/*nav for desktop*/}
         <nav className="hidden md:flex text-white p-4 sticky top-0 z-50 backdrop-blur-md bg-zinc-950/40">
               <a href="/" className="hover:underline">
-                Home
+        <Image
+          src="/logo.svg"
+          alt="Uppsala Formula Student logo"
+          width={180}
+          height={50}
+          className="h-11 w-auto"
+          priority
+        />
                 </a>
 
           <ul className="flex ml-auto gap-6">

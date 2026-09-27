@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useId, useRef } from "react";
 import type { Car } from "@/data/cars";
 import CarModelViewer from "./CarModelViewer";
 
@@ -10,13 +10,14 @@ type CarModalProps = {
   onClose: () => void;
 };
 
-export default function CarModal({
-  car,
-  open,
-  onClose,
-}: CarModalProps) {
+export default function CarModal({ car, open, onClose }: CarModalProps) {
+  const titleId = useId();
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
     if (!open) return;
+
+    const previouslyFocused = document.activeElement as HTMLElement | null;
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -26,10 +27,12 @@ export default function CarModal({
 
     document.addEventListener("keydown", handleKeyDown);
     document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
+      previouslyFocused?.focus();
     };
   }, [open, onClose]);
 
@@ -37,115 +40,85 @@ export default function CarModal({
 
   return (
     <div
-      className="
-        fixed inset-0 z-50
-        flex items-center justify-center
-        bg-black/70 p-4
-        backdrop-blur-sm
-        animate-[modal-backdrop_200ms_ease-out]
-      "
-      onMouseDown={onClose}
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/75 p-3 backdrop-blur-sm animate-[modal-backdrop_200ms_ease-out] sm:p-5"
+      onMouseDown={(event) => {
+        if (event.currentTarget === event.target) onClose();
+      }}
     >
       <div
-        className="
-          relative
-          max-h-[95vh]
-          w-full max-w-[1500px]
-          overflow-y-auto
-          rounded-3xl
-          bg-white
-          p-6
-          shadow-2xl
-          dark:bg-zinc-950
-          md:p-10
-
-          animate-[modal-pop_300ms_cubic-bezier(0.16,1,0.3,1)]
-        "
-        onMouseDown={(event) => event.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        className="relative max-h-[95dvh] w-full max-w-[1600px] overflow-y-auto rounded-3xl border border-zinc-200 bg-white p-5 shadow-2xl animate-[modal-pop_300ms_cubic-bezier(0.16,1,0.3,1)] dark:border-zinc-800 dark:bg-zinc-950 sm:p-7 md:p-10"
       >
-        {/* Close button */}
         <button
+          ref={closeButtonRef}
+          type="button"
           onClick={onClose}
-          className="
-            absolute right-6 top-6 z-20
-            flex size-11 items-center justify-center
-            rounded-full
-            bg-zinc-100
-            text-2xl
-            transition
-            hover:scale-110
-            hover:bg-zinc-200
-            dark:bg-zinc-800
-            dark:hover:bg-zinc-700
-          "
-          aria-label="Close"
+          className="absolute right-4 top-4 z-20 flex size-11 items-center justify-center rounded-full bg-white/90 text-2xl text-zinc-950 shadow-lg backdrop-blur transition hover:scale-105 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:bg-zinc-800/90 dark:text-white dark:hover:bg-zinc-700 sm:right-6 sm:top-6"
+          aria-label={`Close ${car.name} details`}
         >
           ×
         </button>
 
-        {/* Header */}
-        <div className="mb-8">
-          <p className="font-bold uppercase tracking-[0.18em] text-red-600">
-            {car.year}
+        <header className="mb-8 pr-14">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-600 dark:text-blue-400">
+            Project {car.number} · {car.year}
           </p>
-
-          <h2 className="mt-2 text-4xl font-black tracking-tight text-zinc-950 dark:text-white md:text-6xl">
+          <h2
+            id={titleId}
+            className="mt-2 text-4xl font-black italic tracking-tight text-zinc-950 dark:text-white sm:text-5xl md:text-6xl"
+          >
             {car.name}
           </h2>
-        </div>
+        </header>
 
-        {/* Content */}
-        <div className="grid gap-10 xl:grid-cols-[2fr_1fr]">
-
-          {/* 3D VIEW */}
-          <div className="h-[50vh] min-h-[400px] rounded-2xl lg:h-[65vh]">
+        <div className="grid gap-8 xl:grid-cols-[minmax(0,1.65fr)_minmax(320px,0.75fr)] xl:gap-10">
+          <div className="h-[52dvh] min-h-[360px] overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900 sm:min-h-[460px] xl:h-[68dvh] xl:max-h-[820px]">
             {car.model ? (
               <CarModelViewer
                 src={car.model}
                 poster={car.images[0]}
-                alt={`3D model of ${car.name}`}
+                alt={`Interactive 3D model of ${car.name}`}
               />
             ) : (
-              <div
-                className="
-                  flex
-                  h-[50vh]
-                  min-h-[400px]
-                  items-center justify-center
-                  rounded-2xl
-                  bg-zinc-100
-                  text-zinc-500
-                  lg:h-[65vh]
-                  dark:bg-zinc-900
-                "
-              >
-                3D model coming soon
+              <div className="relative flex h-full items-center justify-center overflow-hidden p-8 text-center">
+                <span
+                  aria-hidden="true"
+                  className="absolute text-[15rem] font-black italic leading-none text-zinc-950/[0.04] dark:text-white/[0.04] sm:text-[22rem]"
+                >
+                  {car.number}
+                </span>
+                <div className="relative max-w-md">
+                  <p className="text-sm font-black uppercase tracking-[0.22em] text-blue-600 dark:text-blue-400">
+                    Interactive 3D view
+                  </p>
+                  <h3 className="mt-4 text-3xl font-black text-zinc-950 dark:text-white">
+                    Model coming soon
+                  </h3>
+                  <p className="mt-4 leading-7 text-zinc-600 dark:text-zinc-400">
+                    The viewer is ready for the car&apos;s GLB file when the
+                    current design is ready to publish.
+                  </p>
+                </div>
               </div>
             )}
           </div>
 
-          {/* Information */}
-          <div className="flex flex-col">
-            <h3 className="text-2xl font-black text-zinc-950 dark:text-white">
+          <div className="flex flex-col xl:py-2">
+            <h3 className="text-2xl font-black text-zinc-950 dark:text-white md:text-3xl">
               {car.tagline}
             </h3>
-
             <p className="mt-5 leading-7 text-zinc-600 dark:text-zinc-300">
               {car.description}
             </p>
 
-            {car.specs && (
+            {car.specs && car.specs.length > 0 && (
               <dl className="mt-8 divide-y divide-zinc-200 border-y border-zinc-200 dark:divide-zinc-800 dark:border-zinc-800">
                 {car.specs.map((spec) => (
-                  <div
-                    key={spec.label}
-                    className="flex justify-between gap-6 py-4"
-                  >
-                    <dt className="text-zinc-500">
-                      {spec.label}
-                    </dt>
-
-                    <dd className="font-bold text-zinc-950 dark:text-white">
+                  <div key={spec.label} className="grid grid-cols-[0.8fr_1.2fr] gap-5 py-4">
+                    <dt className="text-sm text-zinc-500">{spec.label}</dt>
+                    <dd className="text-right text-sm font-black text-zinc-950 dark:text-white">
                       {spec.value}
                     </dd>
                   </div>

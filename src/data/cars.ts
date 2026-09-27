@@ -1,37 +1,38 @@
 export type Car = {
     id: string;
     name: string;
-    year: number;
+    year: string | number;
     images: string[];
     model?: string;
+    tagline: string;
     description: string;
-    number: number;
+    number: string | number;
     specs?: {
-        label?: string;
-        value?: string | number;
+        label: string;
+        value: string | number;
     }[];
 };
 
 export const cars: Car[] = [
     {
-        id: "lightning-mcqueen",
-        name: "lightning McQueen",
-        year: 2006,
+        id: "ufs01",
+        name: "UFS01",
+        year: "2027 / 2028 target",
         images: [
             "/images/test/car1.jpg",
             "/images/test/car2.jpg",
             "/images/test/car3.jpg",
         ],
         model: "/images/test/car.glb",
+        tagline: "Uppsala's first Formula Student car.",
         description:
-            "Lightning McQueen is a red race car with a sleek design and a confident personality. He is known for his speed and determination on the racetrack.",
-        number: 95,
+            "UFS01 is the team's first complete vehicle programme. Alongside the car, we are developing the engineering processes, safety culture, documentation, and shared knowledge needed to pass technical inspection and support many future seasons.",
+        number: "01",
         specs: [
-            { label: "Top Speed", value: "200 mph" },
-            { label: "Acceleration", value: "0-60 mph in 3.5 seconds" },
-            { label: "Horsepower", value: 500 },
-            { label: "Weight", value: "2,500 lbs" },
-            { label: "Fuel Type", value: "Gasoline" },
+            { label: "Status", value: "In development" },
+            { label: "Competition target", value: "2027 or 2028" },
+            { label: "Primary objective", value: "Pass technical inspection" },
+            { label: "Built by", value: "Uppsala University students" },
         ],
     },
 ];

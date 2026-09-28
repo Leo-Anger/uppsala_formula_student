@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { members } from "@/data/members";
 import MemberCard from "@/components/MemberCard";
@@ -69,20 +70,85 @@ export default function About() {
   </div>
 </section>
       {/*About formula student section*/}
-        <section className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-            <h1 className="text-5xl font-black tracking-tight md:text-7xl">
-                What is Formula Student?
-            </h1>
-
-            <p className="mt-6 max-w-3xl text-lg font-semibold leading-relaxed text-zinc-100 md:text-xl">
-                Formula Student is an international engineering competition where
-                student teams from around the world design, build, and race a
-                single-seater race car. The competition challenges students to
-                apply their engineering knowledge and skills in a real-world
-                setting, while also fostering teamwork, innovation, and
-                entrepreneurship.
+        <section className="mx-auto grid w-full max-w-[1600px] gap-12 px-4 py-24 md:px-10 md:py-32 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.24em] text-brand-700 dark:text-brand-400">
+              The competition
             </p>
+            <h2 className="mt-5 text-4xl font-black tracking-tight md:text-6xl">
+              What is Formula Student?
+            </h2>
+          </div>
+          <div className="space-y-6 text-lg leading-8 text-zinc-700 dark:text-zinc-300">
+            <p>
+              Formula Student is an international engineering competition.
+              University teams design and build a single-seat race car, then
+              explain their engineering choices and put the car to the test.
+            </p>
+            <p>
+              The work extends well beyond driving. Teams present their design,
+              costs and business case. Cars must pass safety inspections before
+              taking part in events that test acceleration, handling and
+              endurance.
+            </p>
+            <a
+              href="https://www.formulastudent.de/fsg/about"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex font-bold text-brand-700 underline decoration-brand-300 underline-offset-4 hover:text-brand-600 dark:text-brand-400"
+            >
+              Learn more about the competition ↗
+            </a>
+          </div>
         </section>
+
+
+        <section className="mx-auto w-full max-w-[1400px] px-4 py-24 md:px-10 md:py-32">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.24em] text-brand-700 dark:text-brand-400">
+                Quick answers
+              </p>
+              <h2 className="mt-4 text-4xl font-black tracking-tight md:text-5xl">
+                Questions about UFS?
+              </h2>
+            </div>
+            <div className="divide-y divide-zinc-300 border-y border-zinc-300 dark:divide-zinc-700 dark:border-zinc-700">
+              <details className="py-6">
+                <summary className="cursor-pointer text-xl font-bold marker:text-brand-600">
+                  Who can join?
+                </summary>
+                <p className="mt-4 leading-7 text-zinc-700 dark:text-zinc-300">
+                  Bachelor&apos;s and master&apos;s students at Uppsala University
+                  are welcome. The team needs people from technical and
+                  nontechnical backgrounds.
+                </p>
+              </details>
+              <details className="py-6">
+                <summary className="cursor-pointer text-xl font-bold marker:text-brand-600">
+                  Do I need motorsport experience?
+                </summary>
+                <p className="mt-4 leading-7 text-zinc-700 dark:text-zinc-300">
+                  No. Curiosity, commitment and a willingness to learn with
+                  others matter more than arriving with every answer.
+                </p>
+              </details>
+              <details className="py-6">
+                <summary className="cursor-pointer text-xl font-bold marker:text-brand-600">
+                  How can I get involved?
+                </summary>
+                <p className="mt-4 leading-7 text-zinc-700 dark:text-zinc-300">
+                  Explore the departments and roles on our{" "}
+                  <Link href="/join" className="font-bold text-brand-700 underline underline-offset-4 dark:text-brand-400">
+                    Join Us page
+                  </Link>
+                  , then tell us what you would like to contribute.
+                </p>
+              </details>
+            </div>
+          </div>
+        </section>
+
 
       {/*Team section*/}
         <section className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">

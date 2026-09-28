@@ -49,21 +49,28 @@ const departments: Department[] = [
       {
         title: "Frame and Structure",
         responsibilities: [
-          "Design the car's tubular frame.",
-          "Own the primary structure and the car's mounting points.",
+          "Design the car's frame, bodywork and structural mounting points.",
+          "Coordinate how the structure supports the rest of the vehicle.",
         ],
       },
       {
-        title: "Suspension and Steering",
+        title: "Suspension",
         responsibilities: [
-          "Design control arms, suspension, and wheel assemblies.",
-          "Develop the steering geometry and define wheelbase and track width.",
+          "Design control arms, dampers and suspension mounting points.",
+          "Develop suspension geometry with the wheels and uprights team.",
         ],
       },
       {
-        title: "Brakes and Pedal Box",
+        title: "Steering",
         responsibilities: [
-          "Design the braking system and pedal box.",
+          "Design the steering system and its mechanical connections.",
+          "Develop steering geometry and driver feedback with the suspension team.",
+        ],
+      },
+      {
+        title: "Brakes",
+        responsibilities: [
+          "Design and integrate the braking system.",
           "Make sure the car passes the brake test and meets all brake-related safety requirements.",
         ],
       },
@@ -75,10 +82,10 @@ const departments: Department[] = [
         ],
       },
       {
-        title: "Bodywork and Driver Environment",
+        title: "Driver Environment",
         responsibilities: [
-          "Design the bodywork, driver seat, and firewall.",
-          "Own driver ergonomics and make sure the cockpit passes the inspection templates.",
+          "Design the driver seat, pedal box, controls and firewall.",
+          "Own driver ergonomics and make sure the cockpit meets inspection requirements.",
         ],
       },
     ],
@@ -106,7 +113,6 @@ const departments: Department[] = [
       },
       {
         title: "Transmission and Driveshafts",
-        note: "If the final concept uses a central motor",
         responsibilities: [
           "Calculate gearing for the target top speed and acceleration.",
           "Design the differential, driveshafts, and chain or belt drive.",

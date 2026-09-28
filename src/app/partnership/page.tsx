@@ -26,7 +26,7 @@ const contributions = [
   {
     title: "Financial support",
     description:
-      "Funding helps cover components, manufacturing, testing and the costs of taking the car to competition.",
+      "Funding helps cover components, manufacturing, testing and taking the car to competition.",
   },
 ];
 
@@ -39,7 +39,7 @@ export default function PartnershipPage() {
 
       <main className="overflow-x-clip text-zinc-950 dark:text-white">
         <section className="mx-auto w-full max-w-[1600px] px-4 pb-16 pt-10 md:px-10 md:pb-24 md:pt-16">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-zinc-950 via-brand-950 to-brand-800 px-7 py-20 text-white shadow-2xl sm:px-10 md:px-16 md:py-28 lg:px-20">
+          <div className="relative overflow-hidden rounded-3xl bg-black px-7 py-20 text-white shadow-2xl sm:px-10 md:px-16 md:py-28 lg:px-20">
             <div
               aria-hidden="true"
               className="absolute -right-12 -top-20 select-none text-[15rem] font-black italic leading-none tracking-[-0.08em] text-white/[0.035] md:text-[25rem]"
@@ -80,7 +80,7 @@ export default function PartnershipPage() {
                 Ways to contribute
               </p>
               <h2 className="mt-4 text-4xl font-black tracking-tight md:text-6xl">
-                Help move UFS01 forward.
+                Help build us Build something great.
               </h2>
             </div>
             <p className="max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-400 lg:justify-self-end">
@@ -90,47 +90,56 @@ export default function PartnershipPage() {
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {contributions.map((item) => (
-              <article
+          <ol className="grid border-t border-zinc-300 dark:border-zinc-700 lg:grid-cols-2 lg:gap-x-12">
+            {contributions.map((item, index) => (
+              <li
                 key={item.title}
-                className="group min-h-56 rounded-3xl border border-zinc-200 bg-white/80 p-7 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-950/80 md:p-10"
+                className="grid grid-cols-[auto_1fr] gap-6 border-b border-zinc-300 py-9 dark:border-zinc-700 md:gap-10 md:py-12"
               >
-                <div className="h-1 w-14 rounded-full bg-brand-600 transition group-hover:w-24" />
-                <h3 className="mt-10 text-3xl font-black">{item.title}</h3>
-                <p className="mt-4 leading-7 text-zinc-600 dark:text-zinc-400">
-                  {item.description}
-                </p>
-              </article>
+                <span className="font-mono text-sm font-black text-brand-700 dark:text-brand-400">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="text-2xl font-black md:text-3xl">{item.title}</h3>
+                  <p className="mt-4 max-w-lg leading-7 text-zinc-600 dark:text-zinc-400">
+                    {item.description}
+                  </p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </section>
 
         <section className="mx-auto w-full max-w-[1600px] px-4 py-16 md:px-10 md:py-24">
           <div className="relative overflow-hidden rounded-3xl bg-zinc-950 px-8 py-16 text-white md:px-16 md:py-24">
-            <span aria-hidden="true" className="absolute -right-4 -top-20 text-[15rem] font-black italic leading-none text-white/[0.04]">UFS</span>
-            <div className="relative grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-              <p className="text-sm font-black uppercase tracking-[0.24em] text-brand-400">
-                Why partner with students
-              </p>
-              <h2 className="text-4xl font-black leading-tight tracking-tight md:text-6xl">
-                Support a project built to grow.
-              </h2>
+            <span aria-hidden="true" className="pointer-events-none absolute -right-4 -top-20 text-[15rem] font-black italic leading-none text-white/[0.04]">UFS</span>
+            <div className="relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.24em] text-brand-400">
+                  Why partner with us
+                </p>
+                <h2 className="mt-5 text-4xl font-black leading-tight tracking-tight md:text-6xl">
+                </h2>
+              </div>
+              <div className="space-y-6 text-lg leading-8 text-zinc-300">
+                <p>
+                  We are developing an experienced team with strong technical
+                  expertise, while creating a foundation for future generations
+                  of Formula Student cars at Uppsala University.
+                </p>
+                <p>
+                  Our business relations and finance teams work closely to
+                  structure each agreement around clear, realistic commitments
+                  we can confidently deliver.
+                </p>
+              </div>
+            </div>
+            <div className="relative mt-14 grid gap-5 border-t border-white/20 pt-8 text-sm font-bold uppercase tracking-[0.18em] text-brand-300 sm:grid-cols-3">
+              <span>Design the car</span>
+              <span>Build and test</span>
+              <span>Share what we learn</span>
             </div>
           </div>
-        </section>
-
-        <section className="mx-auto grid w-full max-w-[1400px] gap-8 px-4 py-16 md:px-10 md:py-24 lg:grid-cols-2 lg:gap-20">
-          <p className="text-xl font-semibold leading-9 text-zinc-700 dark:text-zinc-300">
-            We are building more than a racing car. We are developing an
-            experienced team and a technical foundation that future Formula
-            Student cars at Uppsala University can build on.
-          </p>
-          <p className="text-xl font-semibold leading-9 text-zinc-700 dark:text-zinc-300">
-            Our business relations and finance teams work together to shape
-            each agreement around clear, realistic commitments that we can
-            deliver. We welcome partners who want to contribute from the start.
-          </p>
         </section>
 
         <section className="mx-auto w-full max-w-[1600px] px-4 pb-10 pt-16 md:px-10 md:pb-16">

@@ -1,7 +1,7 @@
 const socialLinks = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/uppsalafsa/",
+    href: "https://www.instagram.com/uppsalafs/",
     icon: (
       <>
         <rect x="3" y="3" width="18" height="18" rx="5" />

@@ -4,18 +4,21 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Join Us",
   description:
-    "Find your place in Uppsala Formula Student's management, chassis, drivetrain or electrical department.",
+    "Explore roles in chassi, drivetrain, and electrical at Uppsala Formula Student.",
 };
 
 type Role = {
   title: string;
+  openings?: number;
   note?: string;
   responsibilities: string[];
 };
 
 type Department = {
   id: string;
+  number: string;
   name: string;
+  openings: number;
   description: string;
   roles: Role[];
 };
@@ -23,62 +26,44 @@ type Department = {
 const departments: Department[] = [
   {
     id: "management",
+    number: "01",
     name: "Management",
     description:
-      "Coordinate partnerships, finances, communications and events that keep the project moving.",
+      "Build the relationships and financial foundation that let the technical departments deliver.",
     roles: [
       {
-        title: "Business Relations",
+        title: "No openings",
         responsibilities: [
-          "Represent the team in conversations with companies and sponsors.",
-          "Find new partners, make first contact, and maintain each relationship throughout the season.",
-          "Develop sponsorship offers and make sure partners receive the visibility and value we promise.",
-          "Coordinate every agreement with the finance lead.",
-        ],
-      },
-      {
-        title: "Finance Lead",
-        responsibilities: [
-          "Make sure the team has the financial foundation needed to build the car.",
-          "Own the budget, follow up expenses, and manage bookkeeping.",
-          "Apply for grants and keep track of deadlines.",
-          "Handle contracts and agreements with sponsors and suppliers.",
-          "Coordinate with Business Relations so every commitment is realistic and deliverable.",
+          "Check back later for openings in management roles.",
         ],
       },
     ],
   },
   {
-    id: "chassis",
-    name: "Chassis",
+    id: "chassi",
+    number: "02",
+    name: "chassi",
     description:
-      "Design the structure, vehicle dynamics hardware, braking system, and driver environment.",
+      "Design the structure, vehicle dynamics hardware, and driver environment.",
     roles: [
       {
-        title: "Frame, Structure and Bodywork",
+        title: "Frame and Structure",
         responsibilities: [
-          "Design the frame, bodywork and primary structure.",
-          "Develop mounting points and integrate the structure with the rest of the car.",
+          "Design the car's tubular frame.",
+          "Own the primary structure and the car's mounting points.",
         ],
       },
       {
-        title: "Suspension",
+        title: "Suspension and Steering",
         responsibilities: [
-          "Design control arms and suspension geometry.",
-          "Work with wheels and uprights to turn handling targets into a buildable system.",
+          "Design control arms, suspension, and wheel assemblies.",
+          "Develop the steering geometry and define wheelbase and track width.",
         ],
       },
       {
-        title: "Steering",
+        title: "Brakes and Pedal Box",
         responsibilities: [
-          "Develop steering geometry and the driver's steering controls.",
-          "Integrate the steering system with the suspension and cockpit.",
-        ],
-      },
-      {
-        title: "Braking System",
-        responsibilities: [
-          "Design and integrate the braking system.",
+          "Design the braking system and pedal box.",
           "Make sure the car passes the brake test and meets all brake-related safety requirements.",
         ],
       },
@@ -90,16 +75,17 @@ const departments: Department[] = [
         ],
       },
       {
-        title: "Driver Environment and Controls",
+        title: "Bodywork and Driver Environment",
         responsibilities: [
-          "Design the driver seat, firewall, pedal box and other driver controls.",
-          "Own driver ergonomics and make sure the cockpit meets inspection requirements.",
+          "Design the bodywork, driver seat, and firewall.",
+          "Own driver ergonomics and make sure the cockpit passes the inspection templates.",
         ],
       },
     ],
   },
   {
     id: "drivetrain",
+    number: "03",
     name: "Drivetrain",
     description:
       "Turn stored energy into controlled performance and integrate the complete drive system into the car.",
@@ -108,7 +94,7 @@ const departments: Department[] = [
         title: "Motors and Mounting",
         responsibilities: [
           "Select the motors and design their mounts.",
-          "Integrate the motors into the chassis.",
+          "Integrate the motors into the chassi.",
         ],
       },
       {
@@ -144,6 +130,7 @@ const departments: Department[] = [
   },
   {
     id: "electrical",
+    number: "04",
     name: "Electrical",
     description:
       "Build the accumulator, safety circuits, low-voltage system, sensing, and data architecture.",
@@ -157,6 +144,7 @@ const departments: Department[] = [
       },
       {
         title: "Accumulator",
+        openings: 2,
         responsibilities: [
           "Build the car's battery, including cells, segmentation, and fusing.",
           "Compare cell options based on energy, price, and lead time.",
@@ -197,29 +185,25 @@ export default function JoinPage() {
       <main className="overflow-x-clip text-zinc-950 dark:text-white">
         <section className="mx-auto w-full max-w-[1600px] px-4 pb-16 pt-10 md:px-10 md:pb-24 md:pt-16">
           <div className="relative overflow-hidden rounded-3xl bg-zinc-950 px-7 py-20 text-white shadow-2xl sm:px-10 md:px-16 md:py-28 lg:px-20">
-            <div
+          {/* <div
               aria-hidden="true"
-              className="absolute -right-5 -top-20 select-none text-[10rem] font-black italic leading-none tracking-[-0.08em] text-white/[0.04] md:text-[17rem]"
+              className="absolute -right-5 -top-20 select-none text-[14rem] font-black italic leading-none tracking-[-0.08em] text-white/[0.04] md:text-[24rem]"
             >
-              UFS
-            </div>
+              20
+            </div> */}
             <div className="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-red-400 via-red-600 to-rose-900" />
 
             <div className="relative max-w-5xl">
-              <p className="text-sm font-black uppercase tracking-[0.24em] text-red-400">
-                Join us
-              </p>
               <h1 className="mt-5 text-5xl font-black italic leading-[0.9] tracking-[-0.05em] sm:text-6xl md:text-8xl">
-                Shape UFS01
+                Design, build and learn
                 <br />
                 with us.
               </h1>
               <p className="mt-8 max-w-3xl text-lg leading-8 text-zinc-300 md:text-xl">
-                Take part in shaping our first car and the foundation future
-                teams will build on. We learn together, develop expertise and
-                share what we discover. We are looking for curious, committed
-                students who want to contribute.
-              </p>
+                Take part in shaping Uppsala Formula Student&apos;s first car and the
+                foundation of future teams will build on. We work together to learn,
+                build expertise and expand our knowledge. We are looking for curious,
+                committed and competative students.              </p> {/* or collaborative, creative, capable, cool, crazy, */}
               <a
                 href="#open-roles"
                 className="mt-9 inline-flex rounded-lg bg-white px-7 py-3.5 font-black text-zinc-950 transition hover:bg-red-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
@@ -237,13 +221,13 @@ export default function JoinPage() {
                 Find your place
               </p>
               <h2 className="mt-4 text-4xl font-black tracking-tight md:text-6xl">
-                Different departments. One shared project.
+                Four departments. One shared goal.
               </h2>
             </div>
             <p className="max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-400 lg:justify-self-end">
-              A successful team needs people with different skills. Whatever
-              you study, you can play an active role in shaping and delivering
-              the project.
+              Formula Student needs far more than one kind of engineer. A successful team needs people
+              who want to solve problems together, share what
+              they learn, play an active role in shaping and delivering project outcomes.
             </p>
           </div>
 
@@ -252,13 +236,19 @@ export default function JoinPage() {
               <a
                 key={department.id}
                 href={`#${department.id}`}
-                className="group flex min-h-40 flex-col justify-between rounded-3xl border border-zinc-200 bg-white/80 p-6 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-red-500 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600 dark:border-zinc-800 dark:bg-zinc-950/80"
+                className="group rounded-3xl border border-zinc-200 bg-white/80 p-6 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-red-500 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red-600 dark:border-zinc-800 dark:bg-zinc-950/80"
               >
-                <span className="h-1 w-12 rounded-full bg-red-600 transition group-hover:w-20" />
-                <h3 className="text-2xl font-black group-hover:text-red-600">
+                <div className="flex items-center justify-between gap-4">
+                  <span className="font-mono text-sm font-black text-red-600 dark:text-red-400">
+                    {department.number}
+                  </span>
+                  {/*<span className="rounded-full bg-red-50 px-3 py-1 text-xs font-black text-red-700 dark:bg-red-950 dark:text-red-300">
+                    {department.openings} positions
+                  </span> */}
+                </div>
+                <h3 className="mt-10 text-2xl font-black group-hover:text-red-600">
                   {department.name}
                 </h3>
-                <span aria-hidden="true" className="self-end text-xl text-red-600">↓</span>
               </a>
             ))}
           </nav>
@@ -270,7 +260,7 @@ export default function JoinPage() {
               Open roles
             </p>
             <h2 className="mt-4 text-4xl font-black tracking-tight md:text-6xl">
-              Where do you want to contribute?
+                Where do you want to contribute?
             </h2>
           </div>
 
@@ -279,8 +269,8 @@ export default function JoinPage() {
               <section key={department.id} id={department.id} className="scroll-mt-28">
                 <div className="grid gap-6 border-b border-zinc-300 pb-8 dark:border-zinc-700 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
                   <div>
-                    <p className="text-sm font-black uppercase tracking-[0.2em] text-red-600 dark:text-red-400">
-                      Department
+                    <p className="font-mono text-sm font-black text-red-600 dark:text-red-400">
+                      department {department.number}
                     </p>
                     <h3 className="mt-3 text-4xl font-black italic tracking-tight md:text-6xl">
                       {department.name}
@@ -290,6 +280,9 @@ export default function JoinPage() {
                     <p className="max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-400">
                       {department.description}
                     </p>
+                    {/*<p className="mt-3 text-sm font-black uppercase tracking-[0.18em] text-zinc-500">
+                      {department.openings} positions available
+                    </p> */}
                   </div>
                 </div>
 
@@ -299,9 +292,14 @@ export default function JoinPage() {
                       key={role.title}
                       className="rounded-3xl border border-zinc-200 bg-white/80 p-7 backdrop-blur-xl transition duration-300 hover:border-red-500 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-950/80 md:p-8"
                     >
-                      <h4 className="max-w-xl text-2xl font-black tracking-tight">
-                        {role.title}
-                      </h4>
+                      <div className="flex flex-wrap items-start justify-between gap-4">
+                        <h4 className="max-w-xl text-2xl font-black tracking-tight">
+                          {role.title}
+                        </h4>
+                        {/*<span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-black text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200">
+                          {role.openings ?? 1} {(role.openings ?? 1) === 1 ? "position" : "positions"}
+                        </span> */}
+                      </div>
 
                       {role.note && (
                         <p className="mt-3 text-sm font-semibold text-red-600 dark:text-red-400">
@@ -337,25 +335,24 @@ export default function JoinPage() {
             </div>
             <div className="border-t border-zinc-200 bg-zinc-100/80 p-8 dark:border-zinc-800 dark:bg-zinc-900/80 md:p-14 lg:border-l lg:border-t-0">
               <p className="text-lg leading-8 text-zinc-700 dark:text-zinc-300">
-                We welcome bachelor&apos;s and master&apos;s students at Uppsala
-                University from different programmes and backgrounds. Progress
-                is a team effort: we prioritise safety, share what we discover
-                and leave a clear path for those who come next.
+                We welcome students from every programme and background. 
+                Progress is a team effort: we prioritize safety, 
+                share what we discover, and leave a clear path for those who come next.
               </p>
             </div>
           </div>
         </section>
 
-        <section id="apply" className="mx-auto w-full max-w-[1400px] scroll-mt-28 px-4 pb-10 pt-16 md:px-10 md:pb-16 md:pt-24">
+        <section className="mx-auto w-full max-w-[1400px] px-4 pb-10 pt-16 md:px-10 md:pb-16 md:pt-24">
           <div className="rounded-3xl bg-red-600 px-7 py-16 text-center text-white shadow-2xl sm:px-10 md:py-24">
-            <p className="text-2xl font-black uppercase tracking-[0.1em] text-red-100 md:text-3xl">
+            <h1 className="text-sm font-black uppercase tracking-[0.24em] text-red-100 md:text-4xl">
               Interested?
-            </p>
+            </h1>
             <h2 className="mx-auto mt-5 max-w-4xl text-4xl font-black tracking-tight md:text-6xl">
-              Let us know.
+                Let us know.
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-red-100">
-              Mention the role or team that interests you, what you study, and
+              Mention the role or department that interests you, what you study, and
               what you would like to learn with UFS.
             </p>
             <a

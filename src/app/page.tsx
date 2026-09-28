@@ -2,27 +2,31 @@ import Button from "@/components/Button";
 import Image from "next/image";
 import Link from "next/link";
 
-const departments = [
+const teams = [
   {
+    number: "01",
     title: "Management",
     description:
-      "Coordinating the team, finances, partnerships, communications and events.",
+      "Managing the team, finances, partnerships, communications and events.",
   },
   {
-    title: "Chassis",
+    number: "02",
+    title: "Chassi and vehicle dynamics",
     description:
-      "Developing the frame, bodywork, suspension, steering, brakes and driver environment.",
+      "Developing the vehicle dynamics, structural, and aerodynamic systems of the car.",
   },
-  {
-    title: "Drivetrain",
-    description:
-      "Integrating motors, control, transmission, cooling and performance simulation.",
-  },
-  {
-    title: "Electrical",
-    description:
-      "Building the accumulator, safety systems, wiring, sensing and data systems.",
-  },
+{
+  number: "03",
+  title: "Drivetrain",
+  description:
+    "Developing the motors, motor control, transmission, cooling and vehicle performance systems.",
+},
+{
+  number: "04",
+  title: "Electrical",
+  description:
+    "Developing the accumulator, safety systems, low-voltage electronics, sensors and data acquisition.",
+},
 ];
 
 export default function Home() {
@@ -41,7 +45,6 @@ export default function Home() {
               src="/images/main/hero.png"
               fill
               priority
-              sizes="(max-width: 1600px) 100vw, 1600px"
               alt="Uppsala Formula Student team"
               className="object-cover"
             />
@@ -92,10 +95,10 @@ export default function Home() {
         {/* MISSION */}
         <section
           id="mission"
-          className="mx-auto mt-28 w-full max-w-[1600px] px-4 md:mt-36 md:px-10"
+          className="mx-auto mt-28 w-full max-w-[1400px] px-4 md:mt-36 md:px-10"
         >
-          <div className="grid min-h-[380px] overflow-hidden rounded-3xl border border-zinc-200 bg-white/80 shadow-xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/80 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="p-8 md:p-16">
+          <div className="grid overflow-hidden rounded-3xl border border-zinc-200 bg-white/80 shadow-xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/80 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="p-8 md:p-14">
               <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-accent-600">
                 Our mission
               </p>
@@ -105,24 +108,50 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="flex flex-col justify-center bg-brand-800 p-8 text-white md:p-16">
+            <div className="bg-brand-800 p-8 text-white md:p-14">
               <p className="max-w-2xl text-lg font-medium leading-relaxed md:text-xl">
                 Uppsala Formula Student is a student-led team that designs,
                 builds and competes with a Formula Student car. We give students
                 practical experience in engineering, teamwork and project
                 management while advancing sustainable motorsport.
               </p>
+    
+                    {/*ADD BADASS COUNTING WHEN WE ACTUALLY HAVE NUMBERS TO FLEX!!!*/}
+                    {/* <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-white/25 pt-8">
+                <div>
+                  <dt className="text-sm font-bold uppercase tracking-[0.24em] text-white/50">
+                    Students
+                  </dt>
+                  <dd className="mt-1 text-2xl font-black md:text-3xl">
+                    60+
+                  </dd>
+                </div>
 
-              <p className="mt-8 border-t border-white/25 pt-8 text-base leading-relaxed text-brand-100 md:text-lg">
-                From the first design decisions to the finished car, students
-                work across departments to turn ideas into practical experience.
-              </p>
+                <div>
+                  <dt className="text-sm font-bold uppercase tracking-[0.24em] text-white/50">
+                    Partners
+                  </dt>
+                  <dd className="mt-1 text-2xl font-black md:text-3xl">
+                    20+
+                  </dd>
+                </div>
+
+                <div>
+                  <dt className="text-sm font-bold uppercase tracking-[0.24em] text-white/50">
+                    Cars
+                  </dt>
+                  <dd className="mt-1 text-2xl font-black md:text-3xl">
+                    1
+                  </dd>
+                </div>
+              </dl>
+              */}
             </div>
           </div>
         </section>
 
         {/* CURRENT PROJECT */}
-        <section id="project" className="mx-auto mt-28 w-full max-w-[1600px] scroll-mt-28 px-4 md:mt-36 md:px-10">
+        <section className="mx-auto mt-28 w-full max-w-[1400px] px-4 md:mt-36 md:px-10">
           <div className="relative overflow-hidden rounded-3xl bg-zinc-950 px-8 py-16 text-white shadow-2xl md:px-14 md:py-24">
             <div
               aria-hidden="true"
@@ -148,14 +177,13 @@ export default function Home() {
                   competition.
                 </p>
 
-                <a
-                  href="https://www.instagram.com/uppsalafsa/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                {/*CHANGE TO NEWS PAGE LATER*/}
+                <Link
+                  href="https://www.instagram.com/uppsalafs/" 
                   className="mt-8 inline-flex items-center rounded-lg bg-white px-6 py-3 font-bold text-zinc-950 transition hover:bg-brand-100"
                 >
-                  Follow updates on Instagram ↗
-                </a>
+                  Follow the project →
+                </Link>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
@@ -177,8 +205,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* DEPARTMENTS */}
-        <section className="mx-auto mt-28 w-full max-w-[1600px] px-4 md:mt-36 md:px-10">
+        {/* Teams*/}
+        <section className="mx-auto mt-28 w-full max-w-[1400px] px-4 md:mt-36 md:px-10">
           <div className="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-brand-600">
@@ -186,7 +214,7 @@ export default function Home() {
               </p>
 
               <h2 className="text-4xl font-black tracking-tight md:text-6xl">
-                Meet the departments.
+                Meet the departments. 
               </h2>
             </div>
 
@@ -197,28 +225,37 @@ export default function Home() {
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
-            {departments.map((team) => (
-              <Link
+            {teams.map((team) => (
+
+                <Link
+                  href={`/about#${team.title.toLowerCase()}`}
+                  className="mt-8 inline-block font-bold text-brand-600 hover:text-brand-700"
+                >
+              <article
                 key={team.title}
-                href={`/about#${team.title.toLowerCase()}`}
-                aria-label={`Meet the ${team.title} department`}
-                className="group flex min-h-64 flex-col rounded-3xl border border-zinc-200 bg-white/75 p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-600 dark:border-zinc-800 dark:bg-zinc-950/75 md:min-h-72 md:p-10"
+                className="group rounded-3xl border border-zinc-200 bg-white/75 p-7 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-brand-500 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-950/75"
               >
-                <div className="mb-10 h-1 w-16 rounded-full bg-brand-600 transition group-hover:w-24" />
+                <div className="mb-14 flex items-center gap-4">
+                  <span className="font-mono text-sm font-bold text-brand-600">
+                    {team.number}
+                  </span>
+                  <div className="h-px flex-1 bg-zinc-200 transition group-hover:bg-brand-500 dark:bg-zinc-800" />
+                </div>
 
                 <h3 className="text-3xl font-black">{team.title}</h3>
 
-                <p className="mt-4 max-w-xl leading-relaxed text-zinc-600 dark:text-zinc-400">
+                <p className="mt-4 max-w-md leading-relaxed text-zinc-600 dark:text-zinc-400">
                   {team.description}
                 </p>
-                <span aria-hidden="true" className="mt-auto self-end pt-6 text-2xl font-bold text-brand-600 transition group-hover:translate-x-1">→</span>
-              </Link>
+
+              </article>
+                </Link>
             ))}
           </div>
         </section>
 
         {/* PARTNERSHIP */}
-        <section className="mx-auto mt-28 w-full max-w-[1600px] px-4 md:mt-36 md:px-10">
+        <section className="mx-auto mt-28 w-full max-w-[1400px] px-4 md:mt-36 md:px-10">
           <div className="grid gap-10 rounded-3xl border border-zinc-200 bg-zinc-100/80 p-8 backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-900/80 md:p-14 lg:grid-cols-2 lg:items-center">
             <div>
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-brand-600">
@@ -257,24 +294,24 @@ export default function Home() {
 
             <div className="relative">
               <p className="mb-5 text-sm font-bold uppercase tracking-[0.24em] text-brand-100">
-                Join us
+                JOIN US
               </p>
 
               <h2 className="mx-auto max-w-4xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
-                Help shape what we build next.
+                Do you have an interest in engineering or motorsport? 
               </h2>
 
               <p className="mx-auto mt-7 max-w-2xl text-lg text-brand-100">
-                Interested in engineering or motorsport? We welcome curious,
-                committed bachelor&apos;s and master&apos;s students at Uppsala
-                University who want to learn and contribute.
+                We are looking for enthusiastic engineering students to
+                help us shape the future of engineering. Any bachelor’s
+                or master’s student at Uppsala University is encouraged to apply. 
               </p>
 
               <Link
-                href="/join#apply"
+                href="/join"
                 className="mt-9 inline-flex rounded-lg bg-white px-7 py-3.5 font-bold text-brand-700 transition hover:bg-brand-50"
               >
-                Apply now →
+                APPLY HERE →
               </Link>
             </div>
           </div>

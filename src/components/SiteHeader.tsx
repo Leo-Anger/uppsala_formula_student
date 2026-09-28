@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
 
 const navigation = [
   { href: "/about", label: "About" },
@@ -31,12 +32,13 @@ export default function SiteHeader() {
           className="group flex items-center gap-3 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-600"
           aria-label="Uppsala Formula Student home"
         >
-          <span className="rounded-md bg-brand-800 px-2.5 py-1.5 text-lg font-black italic tracking-[-0.05em] text-white transition group-hover:bg-brand-700">
-            UFS
-          </span>
-          <span className="hidden text-sm font-bold leading-tight sm:block">
-            Uppsala Formula Student
-          </span>
+            <Image
+              src="/logo.svg"
+              alt="UFS logo" 
+              width={100}
+              height={100}
+              className="transition group-hover:scale-105"
+            />
         </Link>
 
         <ul className="ml-auto hidden items-center gap-1 md:flex">

@@ -27,6 +27,7 @@ const departments: Department[] = [
   {
     id: "management",
     number: "01",
+    openings: 0,
     name: "Management",
     description:
       "Build the relationships and financial foundation that let the technical departments deliver.",
@@ -42,6 +43,7 @@ const departments: Department[] = [
   {
     id: "chassi",
     number: "02",
+    openings: 0,
     name: "chassi",
     description:
       "Design the structure, vehicle dynamics hardware, and driver environment.",
@@ -93,6 +95,7 @@ const departments: Department[] = [
   {
     id: "drivetrain",
     number: "03",
+    openings: 0,
     name: "Drivetrain",
     description:
       "Turn stored energy into controlled performance and integrate the complete drive system into the car.",
@@ -137,6 +140,7 @@ const departments: Department[] = [
   {
     id: "electrical",
     number: "04",
+    openings: 0,
     name: "Electrical",
     description:
       "Build the accumulator, safety circuits, low-voltage system, sensing, and data architecture.",

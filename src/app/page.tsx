@@ -41,13 +41,14 @@ export default function Home() {
         {/* HERO */}
         <section className="relative mx-auto w-full max-w-[1600px] px-4 pt-24 md:px-10">
           <div className="relative h-[55vh] min-h-[450px] w-full overflow-hidden rounded-2xl">
+          {/*
             <Image
               src="/images/main/hero.png"
               fill
               priority
               alt="Uppsala Formula Student team"
               className="object-cover"
-            />
+            /> */}
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10" />
           </div>

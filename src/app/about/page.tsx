@@ -173,13 +173,13 @@ export default function About() {
                   <div className="h-[2px] flex-1 bg-gradient-to-l from-transparent to-red-600" />
                 </div>
 
-<div className="grid grid-cols-3 gap-3 sm:gap-4 lg:grid-cols-5 lg:gap-6">
-  {teamMembers.map((member) => (
-    <div key={member.name} className="min-w-0">
-      <MemberCard member={member} />
-    </div>
-  ))}
-</div>
+                    <div className="grid grid-cols-3 gap-3 sm:gap-4 lg:grid-cols-5 lg:gap-6">
+                      {teamMembers.map((member) => (
+                        <div key={member.name} className="min-w-0">
+                          <MemberCard member={member} />
+                        </div>
+                      ))}
+                    </div>
               </section>
             );
           })}
